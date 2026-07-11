@@ -11,7 +11,7 @@
 
 | 探测项 | 结果 |
 |---|---|
-| Ping 网关 192.168.2.1 | 平均 **1.0 ms**，4/4 成功，零丢包 |
+| Ping 网关 192.168.x.1 | 平均 **1.0 ms**，4/4 成功，零丢包 |
 | `net use` 状态 | Y:/Z: 均为 **OK** |
 | `Test-Path Y:\` / `Z:\` | 均可访问，耗时 **0.02s / 0.007s**（瞬连） |
 
@@ -19,7 +19,7 @@
 
 ## 二、重新排序的真凶（按可能性）
 
-| 嫌疑 | 你本机状态 | 可能性 |
+| 嫌疑 | 本机实测状态 | 可能性 |
 |---|---|---|
 | 网络盘通知卡顿 | 已实测排除 | ❌ |
 | `dontrefresh`=1 | 该项不存在（默认刷新开） | 低 |
@@ -41,7 +41,7 @@
 - 方式一（最简单·双击即可）：双击 `run-explorer-fix.bat`，它会自动用 `-ExecutionPolicy Bypass` 运行脚本，结束后按任意键关闭窗口。
 - 方式二：Win+X → 终端（非管理员），直接执行（绝对路径，无需 cd）：
   ```powershell
-  powershell -ExecutionPolicy Bypass -File "D:\workbuddy\2026-07-11-08-38-03\reset-explorer-view.ps1"
+  powershell -ExecutionPolicy Bypass -File ".\reset-explorer-view.ps1"
   ```
 - 方式三：右键 `reset-explorer-view.ps1` →「使用 PowerShell 运行」（若被策略拦截则用方式一/二）。
 
