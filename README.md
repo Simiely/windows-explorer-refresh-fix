@@ -37,10 +37,18 @@ powershell -ExecutionPolicy Bypass -File "D:\path\to\reset-explorer-view.ps1"
 ## 验证
 运行后下载一个文件，应当无需按 F5 就自动出现。若仍须手动刷新，按 `explorer-refresh-guide.md` 的进阶步骤排查（系统文件损坏 SFC/DISM、第三方壳扩展 ShellExView 等）。
 
+## 性能影响
+基本无持续影响。修复是「恢复正常的自动刷新 + 清掉损坏缓存」，成本全是一次性的：
+- `AlwaysRefresh=1` 是**事件驱动**刷新（文件变了才刷），非死循环，开销可忽略；
+- 清缩略图 / 图标缓存后，**首次**打开图片 / 视频多的文件夹会略慢几秒（重建缩略图），之后自动恢复并更快；SSD 上重建是秒级；
+- 重置 Shell Bags 仅删后首次并发浏览有短时 CPU 升高，之后正常。
+
+> 注意：**不要频繁反复运行**脚本——频繁清 + 重建缓存会加剧 SSD 写放大 / 磨损，一次就够。实测运行后无性能退化。
+
 ## 安全与可逆性
 - 仅操作**当前用户（HKCU + 用户配置文件）**的缓存与视图状态，**不删除任何真实文件**。
 - 想关闭强制刷新：删除 `HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced` 下的 `AlwaysRefresh`（或设为 0），重启资源管理器即可。
-- 脚本可反复运行，无副作用。
+- 脚本**运行一次即可**，无需频繁反复执行（原因见上「性能影响」）。
 
 ## 仓库
 https://github.com/Simiely/windows-explorer-refresh-fix
