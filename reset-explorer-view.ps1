@@ -12,7 +12,7 @@
 #   5. Write AlwaysRefresh=1 to force the shell to keep refreshing in background
 #
 # How to run: double-click run-explorer-fix.bat, or in PowerShell:
-#   powershell -ExecutionPolicy Bypass -File "D:\workbuddy\2026-07-11-08-38-03\reset-explorer-view.ps1"
+#   powershell -ExecutionPolicy Bypass -File ".\reset-explorer-view.ps1"
 # ============================================================
 
 $ErrorActionPreference = 'SilentlyContinue'
