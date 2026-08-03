@@ -12,7 +12,7 @@ Windows 资源管理器在文件变更后不自动刷新视图，表现为「下
 ## 根因（简要）
 最常见的元凶是：文件夹视图缓存（Shell Bags / BagMRU）损坏、缩略图/图标缓存损坏、或资源管理器历史（Quick Access）损坏。本工具用标准修复组合一次性处理：重置 Shell Bags + 清除图标/缩略图缓存 + 清除历史 + 写入 `AlwaysRefresh=1` 强制外壳后台刷新。
 
-> 说明：社区里常把这类问题甩锅给「映射网络盘」，但本机实测（ping 1ms、瞬连）已排除该假设。详见 `explorer-refresh-guide.md` 与 `DEV-README.md`。
+> 说明：社区里常把这类问题甩锅给「映射网络盘」，但本机实测（ping 1ms、瞬连）已排除该假设。详见 `explorer-refresh-guide.md` 与 `DEVELOPMENT.md`。
 
 ## 文件说明
 | 文件 | 作用 |
@@ -20,7 +20,15 @@ Windows 资源管理器在文件变更后不自动刷新视图，表现为「下
 | `reset-explorer-view.ps1` | 核心修复脚本（纯 ASCII，避免控制台乱码） |
 | `run-explorer-fix.bat` | 一键启动器，双击即可运行上面的脚本 |
 | `explorer-refresh-guide.md` | 完整图文指南（手动分步、管理员 SFC/DISM、ShellExView 排查） |
-| `DEV-README.md` | 开发 / 排障笔记，记录关键问题与可复用经验 |
+| `DEVELOPMENT.md` | 开发 / 排障笔记，记录关键问题与可复用经验 |
+
+## 文档索引
+
+| 文档 | 给谁看 | 内容 |
+|---|---|---|
+| [`AGENTS.md`](./AGENTS.md) | AI / 未来的你 | 技术要点、关键坑（编码/测量）、常用命令 |
+| [`DEVELOPMENT.md`](./DEVELOPMENT.md) | 开发者 | 排障笔记：误诊教训、性能影响交叉验证 |
+| [`explorer-refresh-guide.md`](./explorer-refresh-guide.md) | 用户 | 完整图文指南 |
 
 ## 使用方法
 **方式一（推荐，最省事）**
