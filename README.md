@@ -1,8 +1,3 @@
-> ⚠️ **已并入 [`Simiely/pc-tools`](https://github.com/Simiely/pc-tools)（`scripts/windows-explorer-refresh-fix`）**
-> 本仓库已**归档只读**，内容不再更新。后续维护请到 [pc-tools](https://github.com/Simiely/pc-tools)。
-
----
-
 # Windows 资源管理器自动刷新修复工具
 
 下载 / 拷贝文件后，资源管理器不立即显示新文件，必须手动按 F5 或右键刷新？本项目一键修复。
